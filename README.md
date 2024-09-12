@@ -2,7 +2,7 @@
 
 ## Versions
 
-firebase-tools: v13.17.0
+firebase-tools: v13.17.0<br>
 firebase-functions: v6.0.0
 
 ## Steps to reproduce
@@ -31,3 +31,11 @@ i  Request to function failed: Error: socket hang up
 ```
 
 <img src="./images/invoke-function-error.png" alt="drawing" width="1024"/>
+
+## Notes
+
+Added `admin.initializeApp()` because it looks like the error is raised when trying to initialize the admin SDK
+
+Specifying the import to use v1 `firebase-functions/v1` does not work
+
+Downgrading to Firebase `firebase-functions@5.1.1` works around the issue
